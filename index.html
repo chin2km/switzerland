@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Switzerland · 6–9 Sept 2026</title>
+<meta name="theme-color" content="#1D2B3A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Switzerland">
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231D2B3A'/%3E%3Cpath d='M10 80 L38 30 L52 55 L62 42 L90 80 Z' fill='%23F3F6F8'/%3E%3Cpath d='M38 30 L44 41 L32 41 Z M62 42 L67 50 L57 50 Z' fill='%232B6CB0'/%3E%3C/svg%3E">
+<link rel="manifest" href='data:application/manifest+json,{"name":"Switzerland trip","short_name":"Switzerland","start_url":".","display":"standalone","background_color":"%23F3F6F8","theme_color":"%231D2B3A","icons":[{"src":"data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2720%27 fill=%27%231D2B3A%27/%3E%3Cpath d=%27M10 80 L38 30 L52 55 L62 42 L90 80 Z%27 fill=%27%23F3F6F8%27/%3E%3C/svg%3E","sizes":"any","type":"image/svg+xml","purpose":"any"}]}'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ice:#F3F6F8;--paper:#fff;--rock:#1D2B3A;--slate:#5B6B7B;--line:#D9E1E8;--chip:#EEF2F5;--soft:#F7FAFD;--linkbg:#EAF2FB;--pinbg:#FBF1E6;--applebg:#EEF0F2;
+    --car:#2B6CB0;--walk:#2E8B57;--lift:#7C4DBD;--park:#8A6D3B;--sight:#D9822B;--food:#B5504F;
+  }
+  [data-theme="dark"]{
+    --ice:#0F161E;--paper:#18222D;--rock:#E7EDF3;--slate:#9AAABB;--line:#2A3745;--chip:#243040;--soft:#1E2A37;--linkbg:#1F3450;--pinbg:#3A2A18;--applebg:#2A323B;
+    --car:#5B9BE6;--walk:#4FB37E;--lift:#A98BE0;--park:#C2A26A;--sight:#EFA34F;--food:#E07A78;
+  }
+  .topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+  #theme{font:inherit;font-size:13px;font-weight:600;background:var(--paper);color:var(--rock);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;white-space:nowrap;margin-top:6px}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;overflow-anchor:none;background:var(--ice);color:var(--rock);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:15px;line-height:1.45}
+  .wrap{max-width:980px;margin:0 auto;padding:22px 16px 90px}
+  h1{font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:700;font-size:clamp(30px,5vw,46px);line-height:1;margin:0 0 6px}
+  .lede{margin:0 0 14px;color:var(--slate);max-width:70ch}
+
+  .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:18px}
+  .stat{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .stat .k{font-size:12px;color:var(--slate);text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+  .stat .v{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:28px;font-weight:700;line-height:1.1;margin-top:2px}
+  .stat .v small{font-family:"IBM Plex Sans",sans-serif;font-size:12.5px;font-weight:500;color:var(--slate);margin-left:4px}
+
+  .status{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:16px}
+  .status h3{margin:0 0 6px;font-size:16px}
+  .status p{margin:0 0 12px;color:var(--slate);font-size:13.5px}
+  .status p span{font-weight:500;color:var(--rock)}
+  .status table{width:100%;border-collapse:collapse;font-size:13px}
+  .status th{text-align:left;font-weight:600;padding:4px 8px 6px 0;border-bottom:2px solid var(--rock)}
+  .status td{padding:6px 8px 6px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  .status td:first-child{font-weight:600}
+  .status td:last-child{color:var(--walk);font-weight:500}
+  @media (max-width:640px){
+    .status table,.status tr,.status td,.status th{display:block}
+    .status th{display:none}
+    .status tr{padding:8px 0;border-bottom:1px solid var(--line)}
+    .status td{border:0;padding:2px 0}
+  }
+  .daynav{position:sticky;top:0;z-index:1000;background:var(--ice);padding:8px 0 8px;display:flex;gap:8px;margin-bottom:6px}
+  .daynav a{flex:1;position:relative;overflow:hidden;text-align:center;text-decoration:none;color:var(--rock);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:9px 6px;font-weight:600;font-size:14px;transition:border-color .2s,box-shadow .2s;--p:0}
+  .daynav a::before{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(var(--p)*100%);background:var(--linkbg);z-index:0}
+  .daynav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--car) calc(var(--p)*100%),var(--line) calc(var(--p)*100%));z-index:1}
+  .daynav a b,.daynav a span{position:relative;z-index:1}
+  .daynav a b{display:block;font-family:"IBM Plex Sans Condensed",sans-serif;font-size:17px}
+  .daynav a span{font-weight:500;color:var(--slate);font-size:12.5px}
+  .daynav a.active{border-color:var(--car);box-shadow:0 0 0 1px var(--car) inset}
+  .daynav a.active b{color:var(--car)}
+  @media (max-width:640px){
+    /* at the top of the page: roomy 2×2 grid with subtitles */
+    .daynav{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .daynav a{padding:9px 8px}
+    /* once stuck while scrolling: collapse to one compact row so it doesn't eat the screen */
+    .daynav.stuck{grid-template-columns:repeat(4,1fr);gap:6px}
+    .daynav.stuck a{padding:6px 2px}
+    .daynav.stuck a b{font-size:14px}
+    .daynav.stuck a span{display:none}
+  }
+
+  .day{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:16px 0 26px}
+  .dayhead{padding:16px 18px 12px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;justify-content:space-between}
+  .dayhead h2{margin:0;font-family:"IBM Plex Sans Condensed",sans-serif;font-size:26px;font-weight:700}
+  .dayhead h2 span{color:var(--slate);font-size:17px;font-weight:600;margin-left:8px}
+  .dayhead .tot{font-size:14px;color:var(--slate)}
+  .dayhead .tot b{color:var(--rock);font-variant-numeric:tabular-nums}
+
+  .mapbox{position:relative}
+  .map{height:420px;width:100%;background:var(--chip)}
+  .maptools{position:absolute;right:10px;top:10px;z-index:900;display:flex;flex-direction:column;gap:6px}
+  .maptools button,.maptools a{font:inherit;font-size:12.5px;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:6px 9px;cursor:pointer;color:var(--rock);text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .maplegend{display:flex;flex-wrap:wrap;gap:6px 16px;padding:8px 18px;font-size:12.5px;color:var(--slate);border-bottom:1px solid var(--line)}
+  .maplegend i{display:inline-block;width:22px;height:0;border-top:3px solid;vertical-align:middle;margin-right:6px}
+  .maplegend .c{border-color:var(--car)} .maplegend .w{border-color:var(--walk);border-top-style:dotted;border-top-width:4px} .maplegend .l{border-color:var(--lift);border-top-style:dashed}
+  .mapnote{font-size:12px;color:var(--slate);padding:6px 18px 0}
+
+  .segs{padding:6px 18px 16px}
+  .seg{display:grid;grid-template-columns:34px 1fr auto;gap:2px 12px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer;scroll-margin-top:90px}
+  .seg:last-child{border-bottom:0}
+  .seg.active{background:var(--soft);margin:0 -18px;padding-left:18px;padding-right:18px}
+  .ico{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;grid-row:1/4;margin-top:2px}
+  .ico.car{background:var(--car)} .ico.walk{background:var(--walk)} .ico.lift{background:var(--lift)} .ico.park{background:var(--park)} .ico.sight{background:var(--sight)} .ico.food{background:var(--food)}
+  .seg .t{font-size:12.5px;color:var(--slate);font-variant-numeric:tabular-nums}
+  .seg .t b{color:var(--rock);font-weight:600}
+  .seg .t .dur{margin-left:8px;padding:0 6px;border-radius:999px;background:var(--chip);color:var(--rock);font-weight:500}
+  .seg .t .kind{margin-left:8px;text-transform:uppercase;letter-spacing:.04em;font-size:10.5px;font-weight:700}
+  .seg h3{margin:0;font-size:15.5px;font-weight:600}
+  .seg p{margin:2px 0 0;font-size:13.5px;color:var(--slate)}
+  .seg .cost{grid-row:1/3;grid-column:3;text-align:right;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:15px}
+  .seg .cost small{display:block;font-weight:400;color:var(--slate);font-size:11.5px}
+  .seg .cost.free{color:var(--walk)} .seg .cost.opt{color:var(--slate)}
+  .links{grid-column:2/4;display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .links a{font-size:12.5px;font-weight:600;text-decoration:none;color:var(--car);background:var(--linkbg);border-radius:6px;padding:4px 9px}
+  .links a.apple{color:var(--rock);background:var(--applebg)}
+  .links a.pin{color:var(--sight);background:var(--pinbg)}
+
+  .notes{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .notes h2{margin:0 0 8px;font-size:18px}
+  .notes ul{margin:0;padding-left:18px;font-size:14.5px}
+  .notes li{margin:6px 0}
+
+  .map iframe{width:100%;height:100%;border:0;display:block}
+  .map .ph b{display:block;color:var(--rock);margin-bottom:4px}
+  .map .ph{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--slate);font-size:14px;padding:20px}
+  .map .ph a{color:var(--car);font-weight:600}
+
+  @media (max-width:640px){
+    .wrap{padding:14px 10px 80px}
+    .map{height:320px}
+    .seg{grid-template-columns:30px 1fr;gap:2px 10px}
+    .seg .cost{grid-row:auto;grid-column:2;text-align:left;font-size:14px;margin-top:2px}
+    .seg .cost small{display:inline;margin-left:6px}
+    .links{grid-column:2}
+    .ico{width:26px;height:26px;font-size:11px}
+    .dayhead h2 span{display:block;margin:2px 0 0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar"><h1>Switzerland</h1><button id="theme" type="button" aria-label="Toggle dark mode">◐ Dark</button></div>
+<p class="lede">Sunday 6 – Wednesday 9 September 2026 · 4 adults · driving each day from the Airbnb in La Chaux-du-Milieu, then on to Karlsruhe. Prices in CHF for the whole group, food not included. Tap a segment to highlight it on the map; use the buttons to open directions in your maps app.</p>
+
+<div class="summary">
+  <div class="stat"><div class="k">Total, 4 days</div><div class="v">971<small>CHF · 1,099 with options</small></div></div>
+  <div class="stat"><div class="k">Tickets</div><div class="v">608<small>+128 optional</small></div></div>
+  <div class="stat"><div class="k">Fuel</div><div class="v">305<small>~1,455 km · 12 L/100 km</small></div></div>
+  <div class="stat"><div class="k">Parking</div><div class="v">58</div></div>
+  <div class="stat"><div class="k">Walking</div><div class="v">~24 km<small>over 4 days</small></div></div>
+</div>
+
+<div id="navSentinel" aria-hidden="true"></div>
+<nav class="daynav">
+  <a href="#day1"><b>Sun 6</b><span>Interlaken · Harder Kulm</span></a>
+  <a href="#day2"><b>Mon 7</b><span>First · Pfingstegg</span></a>
+  <a href="#day3"><b>Tue 8</b><span>Lauterbrunnen · Mürren</span></a>
+  <a href="#day4"><b>Wed 9</b><span>Lucerne → Karlsruhe</span></a>
+</nav>
+<div id="navSpacer" aria-hidden="true"></div>
+
+<div id="days"></div>
+
+<div class="notes">
+  <h2>Before you go</h2>
+  <ul>
+    <li><b>Check each morning:</b> jungfrau.ch/en-gb/live/operating-info — the First gondola and Pfingstegg cable car stop in strong wind; All are in normal season (nothing closed for maintenance in September 2026).</li>
+    <li><b>Tickets:</b> First (CHF 76) can be bought online at jungfrau.ch to skip the queue; Harder Kulm and Pfingstegg are bought on the spot. No pass is worth it for this plan.</li>
+    <li><b>Parking fills early</b> at the First valley station on sunny days; fallback is the village car parks on Dorfstrasse (5 min walk). Lauterbrunnen Parkhaus is large and rarely full in September.</li>
+    <li><b>Fuel:</b> ~975 km at 12 L/100 km is roughly 117 litres. Swiss petrol is around CHF 1.75/L; fill up before crossing into Switzerland where possible.</li>
+    <li><b>Long days:</b> each day is 12–13 hours door to door with 4–4.5 h driving. Swap in an earlier drive home whenever the group is tired — everything after 15:00 on each day is optional.</li>
+    <li><b>Mürren alternative (free):</b> if you skip the CHF 96 ride, walk the flat valley path from Lauterbrunnen to Stechelberg (6 km, 1h 20m) and take bus 141 back.</li>
+    <li><b>Day 4 timing:</b> with a 9:00 check-out and Karlsruhe by ~16:00, Lucerne is a one-hour stretch-your-legs stop: Chapel Bridge and a loop of the Old Town squares. The Musegg Wall and Lion Monument were dropped — they'd add 45 min you don't have. If you'd rather skip Lucerne entirely, drive direct via Basel (~4h 15m) and arrive around 13:30. Fuel is cheaper in Germany — fill up after Basel, not before.</li>
+    <li><b>Maps:</b> the embedded maps use Google Maps routing for every drive and walk, including the drive back to the Airbnb each evening; out-and-back walks show arrows in both directions and their direction button opens the full round trip. Mountain trails Google can't route follow hand-placed trail points instead. Cable cars and trains are drawn as straight dotted lines. Map tiles need internet — open the page once on Wi-Fi in the morning, or rely on the direction buttons which hand off to your maps app.</li>
+  </ul>
+</div>
+
+<div class="status">
+  <h3>Transport &amp; opening check for 6–9 September — verified 3 Sept 2026 against the operators</h3>
+  <p>Everything in the plan is running on your dates. Re-check the morning of each day: <span>jungfrau.ch/en-gb/live/operating-info</span> (Harder Kulm, First, Mürren line) and <span>pfingstegg.ch</span> — wind can stop the cable cars at short notice.</p>
+  <table>
+    <tr><th>Transport / place</th><th>Verified status</th><th>Effect on plan</th></tr>
+    <tr><td>Harderbahn (Sun 6)</td><td>Season 3 Apr – 29 Nov 2026. First ascent 9:10, every 30 min, last descent 21:10 in September. Adult return CHF 44.</td><td>Ride up moved to the 10:10 departure</td></tr>
+    <tr><td>First gondola (Mon 7)</td><td>Summer season until 25 Oct; runs from 8:00, last ride down 18:00. Maintenance break 26 Oct – 27 Nov. Adult return CHF 76.</td><td>As planned</td></tr>
+    <tr><td>Pfingsteggbahn (Mon 7)</td><td>Season 25 Apr – 25 Oct 2026. 7 Sept falls in the low-season timetable: up 9:00–17:40 every 20 min, down 9:20–18:00; toboggan and Fly-Line 10:00–17:00. Adult return CHF 32, toboggan CHF 8.</td><td>Ride up at 14:40; toboggan before 17:00 — fits</td></tr>
+    <tr><td>Lauterbrunnen–Grütschalp–Mürren (Tue 8)</td><td>Public-transport line, 2–4 departures per hour. 2026 closures: 13 Apr – 10 Jul and 26 Oct – 6 Nov — not your date. Return roughly CHF 24 (CHF 23.60 at the 2024 tariff).</td><td>Cost lowered from 28 to ~24 per person</td></tr>
+    <tr><td>Staubbach Falls, Iseltwald, Höhematte, Chapel Bridge</td><td>Public spaces, always open, free.</td><td>—</td></tr>
+  </table>
+</div>
+
+</div>
+
+<script>
+// ---------- places ----------
+const P = {
+  home:      {n:"Airbnb, La Chaux-du-Milieu", ll:[47.0169,6.6989]},
+  pOst:      {n:"Parkhaus Interlaken Ost", ll:[46.6902,7.8694]},
+  harderTal: {n:"Harderbahn valley station", ll:[46.6907,7.8637]},
+  harderTop: {n:"Harder Kulm", ll:[46.7031,7.8580]},
+  hardergrat:{n:"Ridge path turnaround", ll:[46.7075,7.8700]},
+  hohematte: {n:"Höhematte", ll:[46.6866,7.8583]},
+  west:      {n:"Interlaken West", ll:[46.6832,7.8515]},
+  pIsel:     {n:"Parkplatz Iseltwald", ll:[46.7113,7.9615]},
+  iselPen:   {n:"Iseltwald peninsula", ll:[46.7100,7.9668]},
+  pFirst:    {n:"P Firstbahn, Grindelwald", ll:[46.6248,8.0400]},
+  firstTal:  {n:"First gondola valley station", ll:[46.6247,8.0398]},
+  firstTop:  {n:"First (2,168 m)", ll:[46.6590,8.0530]},
+  bachalp:   {n:"Bachalpsee", ll:[46.6695,8.0261]},
+  pPfing:    {n:"Pfingsteggbahn valley station", ll:[46.6230,8.0482]},
+  pfingTop:  {n:"Pfingstegg (1,391 m)", ll:[46.6190,8.0560]},
+  baregg:    {n:"Gorge viewpoint towards Bäregg", ll:[46.6130,8.0600]},
+  dorf:      {n:"Grindelwald village, Dorfstrasse", ll:[46.6244,8.0342]},
+  pLaut:     {n:"Parkhaus Lauterbrunnen", ll:[46.5975,7.9077]},
+  staub:     {n:"Staubbach Falls", ll:[46.5918,7.9073]},
+  laut:      {n:"Lauterbrunnen village centre", ll:[46.5935,7.9090]},
+  grutTal:   {n:"Grütschalp cable car, Lauterbrunnen", ll:[46.5957,7.9077]},
+  murren:    {n:"Mürren", ll:[46.5610,7.8946]},
+  winteregg: {n:"Winteregg", ll:[46.5735,7.9010]},
+  pLuz:      {n:"Parkhaus Bahnhof, Lucerne", ll:[47.0500,8.3095]},
+  kapell:    {n:"Chapel Bridge (Kapellbrücke)", ll:[47.0517,8.3077]},
+  altstadt:  {n:"Old Town, Hirschenplatz", ll:[47.0523,8.3057]},
+  musegg:    {n:"Musegg Wall, Schirmerturm", ll:[47.0560,8.3060]},
+  lion:      {n:"Lion Monument", ll:[47.0584,8.3113]},
+  quai:      {n:"Schweizerhofquai lake promenade", ll:[47.0538,8.3130]},
+  karlsruhe: {n:"Karlsruhe", ll:[49.0069,8.4037]},
+};
+
+// ---------- segments ----------
+// kind: car | park | walk | lift | sight | food ; from/to for routing; mode for OSRM: car|foot|lift
+const DAYS = [
+{ id:"day1", title:"Sunday 6 September", sub:"Interlaken & Harder Kulm", total:"CHF 264", hours:"12h 25m door to door", km:"~325 km driving · 8 km walking",
+  segs:[
+  {k:"car", t:"7:30 – 9:40", d:"2h 10m", h:"Drive Airbnb → Parkhaus Interlaken Ost", p:"A5 to Neuchâtel, A1 to Bern, A6 to Thun and Interlaken, ~150 km. Take exit Interlaken Ost.", c:"68", cs:"fuel for the whole day, ~325 km", from:"home", to:"pOst", mode:"car"},
+  {k:"park", t:"9:40 – 9:55", d:"15m", h:"Park at Parkhaus Interlaken Ost", p:"Multi-storey next to the station and boat pier. Pay on exit.", c:"15", cs:"all day", at:"pOst"},
+  {k:"walk", t:"9:55 – 10:00", d:"5m · 450 m", h:"Walk to the Harderbahn valley station", p:"Cross the Aare on the footbridge; the funicular station is straight ahead.", c:"0", from:"pOst", to:"harderTal", mode:"foot"},
+  {k:"lift", t:"10:10 – 10:20", d:"10m", h:"Harder Kulm funicular up", p:"First ascent 9:10, then every 30 min (:10 and :40). 64% gradient, 1,322 m at the top. Buy return tickets at the desk.", c:"176", cs:"4 × 44 return", from:"harderTal", to:"harderTop", mode:"lift"},
+  {k:"sight", t:"10:20 – 10:40", d:"20m", h:"Two Lakes Bridge & panorama terrace", p:"Glass-bottomed viewing platform over both lakes; Eiger, Mönch and Jungfrau straight ahead.", c:"0", at:"harderTop"},
+  {k:"walk", t:"10:40 – 11:50", d:"1h 10m · ~2.5 km", h:"Ridge walk towards Hardergrat and back", p:"Easy forest path along the crest from the restaurant. Walk out ~35 min, turn around at the first clearing, back the same way. Sturdy shoes, no scrambling needed on this stretch.", c:"0", from:"harderTop", to:"hardergrat", via:[[46.7044,7.8612],[46.7058,7.8655]], mode:"foot", back:true},
+  {k:"food", t:"11:50 – 13:10", d:"1h 20m", h:"Lunch at the Panorama Restaurant Harder Kulm", p:"Terrace tables face the peaks. Cheaper option: ride down and eat in town.", c:"food", cs:"not counted", at:"harderTop"},
+  {k:"lift", t:"13:20 – 13:35", d:"15m", h:"Funicular down", p:"Every 30 min; last descent in September is 21:10, so no pressure.", c:"—", cs:"in return ticket", from:"harderTop", to:"harderTal", mode:"lift"},
+  {k:"walk", t:"13:35 – 13:50", d:"15m · 1.1 km", h:"Walk to the Höhematte", p:"Back over the footbridge, along Höheweg past the casino.", c:"0", from:"harderTal", to:"hohematte", mode:"foot"},
+  {k:"sight", t:"13:50 – 14:20", d:"30m", h:"Höhematte park", p:"Big meadow with the Jungfrau view; paragliders land here all afternoon. Benches on the Höheweg side.", c:"0", at:"hohematte"},
+  {k:"walk", t:"14:20 – 14:50", d:"30m · 1.6 km", h:"Aare river walk to Interlaken West", p:"Follow the river path west from the Höhematte; small shops and cafés around the West station.", c:"0", from:"hohematte", to:"west", mode:"foot"},
+  {k:"walk", t:"14:50 – 15:20", d:"30m · 2.1 km", h:"Walk back to the car", p:"Along the Aare and Höheweg to Parkhaus Interlaken Ost.", c:"0", from:"west", to:"pOst", mode:"foot"},
+  {k:"car", t:"15:25 – 15:45", d:"20m · 12 km", h:"Drive to Iseltwald", p:"Lake road along the south shore of Lake Brienz. Cars can't enter the village — use the car park at the entrance.", c:"5", cs:"village car park", from:"pOst", to:"pIsel", mode:"car"},
+  {k:"walk", t:"15:45 – 17:25", d:"1h 40m · ~2.5 km", h:"Iseltwald peninsula & shore", p:"Walk through the village to the peninsula path around Schloss Seeburg (30 min), sit on the shore, swim if it's warm. Café at the harbour.", c:"0", from:"pIsel", to:"iselPen", via:[[46.7108,7.9640]], mode:"foot", back:true},
+  {k:"walk", t:"17:25 – 17:30", d:"5m", h:"Back to the car", p:"", c:"0", from:"iselPen", to:"pIsel", mode:"foot"},
+  {k:"car", t:"17:30 – 19:55", d:"2h 25m · 165 km", h:"Drive Iseltwald → Airbnb", p:"Back via Interlaken, Thun, Bern, Neuchâtel.", c:"—", cs:"in day fuel", from:"pIsel", to:"home", mode:"car"},
+]},
+{ id:"day2", title:"Monday 7 September", sub:"Grindelwald: First & Pfingstegg", total:"CHF 518", totOpt:"+32 toboggan", hours:"12h 55m door to door", km:"~330 km driving · 9 km walking",
+  segs:[
+  {k:"car", t:"7:00 – 9:20", d:"2h 20m · 165 km", h:"Drive Airbnb → First gondola, Grindelwald", p:"Via Bern and Interlaken, then up the Lütschine valley through Zweilütschinen. Parking is at Dorfstrasse 187.", c:"69", cs:"fuel for the whole day, ~330 km", from:"home", to:"pFirst", mode:"car"},
+  {k:"park", t:"9:20 – 9:40", d:"20m", h:"Park at P Firstbahn", p:"Small lot at the valley station; if full, the public car parks along Dorfstrasse are 5 min away. Ticket desk and toilets in the station.", c:"12", cs:"all day", at:"pFirst"},
+  {k:"lift", t:"9:45 – 10:10", d:"25m", h:"First gondola up", p:"Three sections via Bort and Schreckfeld to 2,168 m. Buy online the evening before to skip the queue.", c:"304", cs:"4 × 76 return", from:"firstTal", to:"firstTop", mode:"lift"},
+  {k:"sight", t:"10:10 – 10:45", d:"35m", h:"First Cliff Walk", p:"Steel walkway bolted to the cliff face, ending on a 45 m glass-floored platform. Included with the gondola ticket.", c:"0", at:"firstTop"},
+  {k:"walk", t:"10:45 – 11:40", d:"55m · 3 km", h:"Walk First → Bachalpsee", p:"Wide gravel path, +150 m gently uphill. Signposted from the gondola exit.", c:"0", from:"firstTop", to:"bachalp", via:[[46.6622,8.0468],[46.6655,8.0385],[46.6680,8.0310]], mode:"foot"},
+  {k:"sight", t:"11:40 – 12:00", d:"20m", h:"Bachalpsee", p:"Two small lakes; the classic photo of the Schreckhorn reflected is from the far end of the upper lake.", c:"0", at:"bachalp"},
+  {k:"walk", t:"12:00 – 12:50", d:"50m · 3 km", h:"Walk Bachalpsee → First", p:"Same path back, mostly downhill.", c:"0", from:"bachalp", to:"firstTop", via:[[46.6680,8.0310],[46.6655,8.0385],[46.6622,8.0468]], mode:"foot"},
+  {k:"food", t:"12:50 – 13:45", d:"55m", h:"Lunch at Berggasthaus First", p:"Big terrace at the gondola top station. Or bring a picnic and eat at the lake instead.", c:"food", cs:"not counted", at:"firstTop"},
+  {k:"lift", t:"13:45 – 14:10", d:"25m", h:"Gondola down to Grindelwald", p:"", c:"—", cs:"in return ticket", from:"firstTop", to:"firstTal", mode:"lift"},
+  {k:"walk", t:"14:10 – 14:15", d:"5m", h:"Back to the car at P Firstbahn", p:"", c:"0", from:"firstTal", to:"pFirst", mode:"foot"},
+  {k:"car", t:"14:15 – 14:25", d:"10m · 1 km", h:"Drive to the Pfingsteggbahn valley station", p:"East along Dorfstrasse, right down towards the river; small car park at the station.", c:"5", cs:"parking", from:"pFirst", to:"pPfing", mode:"car"},
+  {k:"lift", t:"14:40 – 14:45", d:"5m", h:"Pfingstegg cable car up", p:"7 Sept is low season: up 9:00–17:40 every 20 min, down until 18:00 (runs continuously when busy). Not part of the Jungfrau Railways — separate ticket at the station.", c:"128", cs:"4 × 32 return", from:"pPfing", to:"pfingTop", mode:"lift"},
+  {k:"sight", t:"14:45 – 15:05", d:"20m", h:"Glacier gorge viewpoint", p:"Terrace at 1,391 m looking into the Lower Grindelwald glacier gorge and across to the Wetterhorn.", c:"0", at:"pfingTop"},
+  {k:"walk", t:"15:05 – 16:00", d:"55m · ~2.5 km", h:"Walk towards Bäregg and back", p:"Well-made path along the gorge edge. Go ~30 min to the first big viewpoint over the gorge, then turn back — the full Bäregg hut is 1h 15m one way.", c:"0", from:"pfingTop", to:"baregg", via:[[46.6170,8.0572],[46.6150,8.0588]], mode:"foot", back:true},
+  {k:"sight", t:"16:00 – 16:25", d:"25m", h:"Summer toboggan run (optional)", p:"725 m rail toboggan starting next to the restaurant; one ride each. Open 10:00–17:00 in September, stops in rain.", c:"+32", cs:"optional, 4 × 8", at:"pfingTop", opt:true},
+  {k:"lift", t:"16:25 – 16:35", d:"10m", h:"Cable car down", p:"", c:"—", cs:"in return ticket", from:"pfingTop", to:"pPfing", mode:"lift"},
+  {k:"walk", t:"16:35 – 16:50", d:"15m · 1 km", h:"Walk to the village centre", p:"Leave the car at Pfingstegg; walk up to Dorfstrasse.", c:"0", from:"pPfing", to:"dorf", mode:"foot"},
+  {k:"food", t:"16:50 – 17:20", d:"30m", h:"Coffee on Dorfstrasse", p:"Terraces face the Eiger north face; Bäckerei Ringgenberg or Café 3692 are good.", c:"food", cs:"not counted", at:"dorf"},
+  {k:"walk", t:"17:20 – 17:35", d:"15m · 1 km", h:"Walk back to the car", p:"", c:"0", from:"dorf", to:"pPfing", mode:"foot"},
+  {k:"car", t:"17:35 – 19:55", d:"2h 20m · 165 km", h:"Drive Grindelwald → Airbnb", p:"", c:"—", cs:"in day fuel", from:"pPfing", to:"home", mode:"car"},
+]},
+{ id:"day3", title:"Tuesday 8 September", sub:"Lauterbrunnen & Mürren", total:"CHF 82", totOpt:"+96 Mürren", hours:"11h 45m door to door", km:"~320 km driving · 6 km walking",
+  segs:[
+  {k:"car", t:"7:30 – 9:45", d:"2h 15m · 160 km", h:"Drive Airbnb → Parkhaus Lauterbrunnen", p:"Via Bern and Interlaken; at Zweilütschinen keep right for Lauterbrunnen. The Parkhaus is the big building on the right as you enter the village.", c:"67", cs:"fuel for the whole day, ~320 km", from:"home", to:"pLaut", mode:"car"},
+  {k:"park", t:"9:45 – 10:00", d:"15m", h:"Park at Parkhaus Lauterbrunnen", p:"Multi-storey next to the station; pay on exit. Toilets in the station.", c:"15", cs:"all day", at:"pLaut"},
+  {k:"walk", t:"10:00 – 10:15", d:"15m · 800 m", h:"Walk to Staubbach Falls", p:"Through the village along the main street; the falls are visible the whole way.", c:"0", from:"pLaut", to:"staub", mode:"foot"},
+  {k:"sight", t:"10:15 – 10:45", d:"30m", h:"Staubbach Falls", p:"297 m free-fall. Take the steps up to the tunnel path that runs behind the water curtain (15 min up and back). Expect spray.", c:"0", at:"staub"},
+  {k:"walk", t:"10:45 – 11:20", d:"35m · 1.6 km", h:"Riverside loop back through the village", p:"Follow the path along the Lütschine river downstream, cross at the footbridge and come back up the main street. Flat.", c:"0", from:"staub", to:"laut", via:[[46.5905,7.9110],[46.5940,7.9100]], mode:"foot"},
+  {k:"sight", t:"11:20 – 13:10", d:"1h 50m", h:"Chill in Lauterbrunnen", p:"Coffee on the Airtime Café terrace, benches by the river, browse the two or three shops, watch the paragliders and base jumpers come off the cliffs. Nothing scheduled — this is the rest block.", c:"0", at:"laut"},
+  {k:"food", t:"13:10 – 14:20", d:"1h 10m", h:"Lunch in Lauterbrunnen", p:"Hotel Oberland terrace, or Flavours for something quicker.", c:"food", cs:"not counted", at:"laut"},
+  {k:"walk", t:"14:20 – 14:25", d:"5m", h:"Walk to the Grütschalp cable car", p:"Directly across from the train station, 5 min from the village centre.", c:"0", from:"laut", to:"grutTal", mode:"foot"},
+  {k:"lift", t:"14:30 – 14:55", d:"25m", h:"Cable car to Grütschalp, train to Mürren (optional)", p:"4 min cable car straight up the cliff, then the narrow-gauge train along the ledge to Mürren. Runs 2–4× per hour; 2026 maintenance closures are 13 Apr–10 Jul and 26 Oct–6 Nov, so 8 Sept is fine. Buy a Lauterbrunnen–Mürren return at the station.", c:"+96", cs:"optional, 4 × ~24 return", from:"grutTal", to:"murren", mode:"lift", opt:true},
+  {k:"sight", t:"14:55 – 15:35", d:"40m", h:"Mürren village", p:"Car-free village at 1,638 m facing Eiger, Mönch and Jungfrau. Walk the main street to the Allmendhubel end and back.", c:"0", at:"murren", opt:true},
+  {k:"walk", t:"15:35 – 16:30", d:"55m · 3.4 km", h:"Panorama path Mürren → Winteregg", p:"Gentle downhill path through meadows and forest with the big three peaks on your right the whole way. Ends at Winteregg station.", c:"0", from:"murren", to:"winteregg", via:[[46.5650,7.8965],[46.5695,7.8990]], mode:"foot", opt:true},
+  {k:"lift", t:"16:35 – 17:00", d:"25m", h:"Train Winteregg → Grütschalp, cable car down", p:"Covered by the return ticket.", c:"—", cs:"in return ticket", from:"winteregg", to:"grutTal", mode:"lift", opt:true},
+  {k:"walk", t:"17:00 – 17:05", d:"5m", h:"Back to the car", p:"", c:"0", from:"grutTal", to:"pLaut", mode:"foot"},
+  {k:"car", t:"17:05 – 19:20", d:"2h 15m · 160 km", h:"Drive Lauterbrunnen → Airbnb", p:"", c:"—", cs:"in day fuel", from:"pLaut", to:"home", mode:"car"},
+]},
+{ id:"day4", title:"Wednesday 9 September", sub:"Check-out, a quick Lucerne stop, drive to Karlsruhe", total:"CHF 107", hours:"Arrive Karlsruhe ~16:00", km:"~480 km driving · 2 km walking",
+  segs:[
+  {k:"park", t:"8:30 – 9:00", d:"30m", h:"Pack the car and check out", p:"Relaxed morning; check-out at 9:00 (host's latest is 11:00). Leave the key as agreed.", c:"0", at:"home"},
+  {k:"car", t:"9:15 – 11:20", d:"2h 05m · 150 km", h:"Drive Airbnb → Lucerne", p:"Down to Neuchâtel, A5 to Biel, A1 past Solothurn, A2 into Lucerne. Exit Luzern-Zentrum and follow signs P Bahnhof.", c:"101", cs:"fuel for the whole day, ~480 km", from:"home", to:"pLuz", mode:"car"},
+  {k:"park", t:"11:20 – 11:30", d:"10m", h:"Park at Parkhaus Bahnhof Luzern", p:"Under the station, right by the lake. About CHF 4–5 per hour; you'll be here just over an hour.", c:"6", cs:"~1 h", at:"pLuz"},
+  {k:"walk", t:"11:30 – 11:40", d:"10m · 500 m", h:"Walk to the Chapel Bridge", p:"Out of the station, across Bahnhofplatz, along the Reuss.", c:"0", from:"pLuz", to:"kapell", mode:"foot"},
+  {k:"sight", t:"11:40 – 11:55", d:"15m", h:"Chapel Bridge & Water Tower", p:"14th-century covered wooden bridge with painted panels in the roof; the octagonal tower is older. Free, walk across.", c:"0", at:"kapell"},
+  {k:"walk", t:"11:55 – 12:20", d:"25m · 1 km", h:"Old Town loop with a coffee to go", p:"Kornmarkt, Weinmarkt and Hirschenplatz — car-free squares with painted facades — then back along the river over the Spreuer Bridge. Grab coffee and a pastry to take away rather than sitting down.", c:"0", cs:"coffee not counted", from:"kapell", to:"altstadt", via:[[47.0518,8.3020]], mode:"foot", back:true},
+  {k:"walk", t:"12:20 – 12:30", d:"10m · 500 m", h:"Walk back to the car", p:"Same way back across Bahnhofplatz.", c:"0", from:"kapell", to:"pLuz", mode:"foot"},
+  {k:"car", t:"12:30 – 16:00", d:"3h 30m · 330 km", h:"Drive Lucerne → Karlsruhe", p:"A2 to Basel (border, no stop needed), then German A5 north past Freiburg and Offenburg. Includes one 10 min stop — Raststätte Bad Bellingen is a good spot. German motorway has no toll; fuel is cheaper after Basel.", c:"—", cs:"in day fuel", from:"pLuz", to:"karlsruhe", mode:"car"},
+]},
+];
+
+// ---------- helpers ----------
+const GOOGLE_MAPS_API_KEY = "AIzaSyDAsM-3nDDPCYEBaEK9gL_sONzEY9CTAm8";
+
+const ll = k => P[k].ll;
+const gdir = (a,b,mode,via,back) => { const dest = back ? a : b; const wps = (via||[]).slice(); if (back) wps.push(b); return `https://www.google.com/maps/dir/?api=1&origin=${a[0]},${a[1]}&destination=${dest[0]},${dest[1]}${wps.length?`&waypoints=${wps.map(w=>w.join(',')).join('|')}`:''}&travelmode=${mode==='car'?'driving':(mode==='lift'?'transit':'walking')}`; };
+const adir = (a,b,mode) => `https://maps.apple.com/?saddr=${a[0]},${a[1]}&daddr=${b[0]},${b[1]}&dirflg=${mode==='car'?'d':(mode==='lift'?'r':'w')}`;
+const gpin = (a) => `https://www.google.com/maps/search/?api=1&query=${a[0]},${a[1]}`;
+const KIND = {car:"Drive",park:"Park",walk:"Walk",lift:"Lift",sight:"Visit",food:"Eat"};
+
+const root = document.getElementById('days');
+const dayState = [];
+
+DAYS.forEach((day, di) => {
+  const el = document.createElement('section'); el.className='day'; el.id=day.id;
+  el.innerHTML = `
+    <div class="dayhead"><h2>${day.title}<span>${day.sub}</span></h2>
+      <div class="tot">Day total <b>${day.total}</b>${day.totOpt?` · ${day.totOpt}`:''} · ${day.hours} · ${day.km}</div></div>
+    <div class="mapbox"><div class="map" id="map-${day.id}"><div class="ph">Loading Google Maps…</div></div>
+      <div class="maptools"><button data-zoom="local">Local view</button><button data-zoom="all">Include Airbnb drive</button></div></div>
+    <div class="maplegend"><span><i class="c"></i>Drive</span><span><i class="w"></i>Walk (dots)</span><span><i class="l"></i>Cable car / funicular / train (dashes)</span><span>Numbers = segments below</span><a class="dayopen" target="_blank" rel="noopener" style="margin-left:auto;font-weight:600;color:var(--car);text-decoration:none">Open day route in Google Maps ↗</a></div>
+    <div class="segs"></div>`;
+  root.appendChild(el);
+
+  // whole-day driving route link (car stops only)
+  const carStops = []; day.segs.forEach(s=>{ if(s.k==='car'&&!s.bus){ if(!carStops.length) carStops.push(s.from); carStops.push(s.to);} });
+  const o=ll(carStops[0]), d=ll(carStops[carStops.length-1]);
+  const wps = carStops.slice(1,-1).map(k=>ll(k).join(',')).join('|');
+  el.querySelector('.dayopen').href = `https://www.google.com/maps/dir/?api=1&origin=${o.join(',')}&destination=${d.join(',')}${wps?`&waypoints=${wps}`:''}&travelmode=driving`;
+
+  const list = el.querySelector('.segs');
+  day.segs.forEach((s, i) => {
+    const d = document.createElement('div'); d.className='seg'; d.dataset.i=i;
+    const costCls = s.c==='0'||s.c==='food'||s.c==='—' ? 'free' : (s.opt?'opt':'');
+    let links = '';
+    if (s.from && s.to && !s.bus) {
+      links += `<a href="${gdir(ll(s.from),ll(s.to),s.mode,s.via,s.back)}" target="_blank" rel="noopener">Google Maps directions${s.back?' (round trip)':''}</a>`;
+      links += `<a class="apple" href="${adir(ll(s.from),ll(s.to),s.mode)}" target="_blank" rel="noopener">Apple Maps</a>`;
+    } else if (s.at) {
+      links += `<a class="pin" href="${gpin(ll(s.at))}" target="_blank" rel="noopener">Open ${P[s.at].n} in Maps</a>`;
+    } else if (s.bus) {
+      links += `<a class="pin" href="${gpin(ll(s.from))}" target="_blank" rel="noopener">Bus stop location</a>`;
+    }
+    d.innerHTML = `<div class="ico ${s.k}">${i+1}</div>
+      <div class="t"><b>${s.t}</b><span class="dur">${s.d}</span><span class="kind">${KIND[s.k]}</span></div>
+      <h3>${s.h}</h3>${s.p?`<p>${s.p}</p>`:''}
+      <div class="cost ${costCls}">${s.c}${s.cs?`<small>${s.cs}</small>`:''}</div>
+      ${links?`<div class="links">${links}</div>`:''}`;
+    list.appendChild(d);
+  });
+  dayState[di] = {el, list, map:null, lines:[], markers:{}, localBounds:null, allBounds:null};
+});
+
+// ---------- Google Maps ----------
+function embedFallback(reason){
+  DAYS.forEach(day=>{
+    const el=document.getElementById(`map-${day.id}`);
+    const carStops=[]; day.segs.forEach(s=>{ if(s.k==='car'&&!s.bus){ if(!carStops.length) carStops.push(s.from); carStops.push(s.to);} });
+    const o=ll(carStops[0]).join(','), d=ll(carStops[carStops.length-1]).join(',');
+    const wps=carStops.slice(1,-1).map(k=>ll(k).join(',')).join('|');
+    el.innerHTML=`<iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed/v1/directions?key=${encodeURIComponent(GOOGLE_MAPS_API_KEY)}&origin=${o}&destination=${d}${wps?`&waypoints=${wps}`:''}&mode=driving&maptype=roadmap"></iframe>`;
+  });
+  document.querySelectorAll('.mapnote').forEach(n=>n.remove());
+  const n=document.createElement('p'); n.className='lede'; n.style.marginTop='0';
+  n.textContent=`Showing the driving route only (${reason}). Open this file in Chrome or Safari to get the full interactive map with the walking routes.`;
+  document.querySelector('.summary').after(n);
+}
+function showMapError(msg){
+  DAYS.forEach(day=>{ document.getElementById(`map-${day.id}`).innerHTML=`<div class="ph"><b>Google Maps could not load</b>${msg}</div>`; });
+}
+window.gm_authFailure = function(){
+  showMapError('The API key was rejected. In Google Cloud Console check that Maps JavaScript API and Directions API are enabled, billing is active, and the key has no HTTP-referrer restriction (this file opens from file://, which has no referrer).');
+};
+function loadGoogle(key){
+  const sc = document.createElement('script');
+  sc.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&libraries=geometry&callback=initMaps&loading=async`;
+  sc.async = true;
+  sc.onerror = ()=> embedFallback('the map script was blocked — this happens inside the chat preview or offline');
+  document.head.appendChild(sc);
+  setTimeout(()=>{ if(!window.google) embedFallback('the map script did not load in time'); }, 12000);
+}
+loadGoogle(GOOGLE_MAPS_API_KEY);
+
+// ---------- theme ----------
+const DARK_MAP = [
+  {elementType:'geometry',stylers:[{color:'#1f2a36'}]},
+  {elementType:'labels.text.fill',stylers:[{color:'#9fb0c2'}]},
+  {elementType:'labels.text.stroke',stylers:[{color:'#131a22'}]},
+  {featureType:'road',elementType:'geometry',stylers:[{color:'#354456'}]},
+  {featureType:'road.highway',elementType:'geometry',stylers:[{color:'#4a5b70'}]},
+  {featureType:'water',elementType:'geometry',stylers:[{color:'#0f2233'}]},
+  {featureType:'landscape.natural',elementType:'geometry',stylers:[{color:'#24313f'}]},
+  {featureType:'poi.park',elementType:'geometry',stylers:[{color:'#223a30'}]},
+  {featureType:'poi',elementType:'labels',stylers:[{visibility:'off'}]},
+];
+let theme = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+function applyTheme(){
+  document.documentElement.dataset.theme = theme;
+  document.getElementById('theme').textContent = theme==='dark' ? '○ Light' : '◐ Dark';
+  document.querySelector('meta[name=theme-color]').content = theme==='dark' ? '#0F161E' : '#1D2B3A';
+  dayState.forEach(st=>{ if(st.map) st.map.setOptions({styles: theme==='dark' ? DARK_MAP : [], mapTypeId: theme==='dark' ? 'roadmap' : 'terrain'}); });
+}
+document.getElementById('theme').addEventListener('click',()=>{ theme = theme==='dark'?'light':'dark'; applyTheme(); });
+applyTheme();
+
+const COL = {car:'#2B6CB0', foot:'#2E8B57', lift:'#7C4DBD'};
+const dashed = (color, kind) => kind==='dot'
+  ? {strokeOpacity:0, strokeColor:color, icons:[{icon:{path:google.maps.SymbolPath.CIRCLE, scale:3, fillColor:color, fillOpacity:1, strokeColor:'#fff', strokeWeight:1}, offset:'0', repeat:'11px'}]}
+  : {strokeOpacity:0, strokeColor:color, icons:[{icon:{path:'M 0,-1 0,1', strokeOpacity:1, strokeColor:color, scale:3}, offset:'0', repeat:'16px'}]};
+
+let routed = 0, failed = 0, routesErr = '';
+function routeFailed(status){
+  failed++;
+  if (failed !== 1) return;
+  const n=document.createElement('div'); n.className='lede'; n.style.cssText='background:#FFF7E6;border:1px solid #F0D9A6;border-radius:10px;padding:12px 14px;margin:0 0 14px;color:var(--rock)';
+  n.innerHTML=`<b>Routes are showing as straight lines</b> because Google refused the routing request (${routesErr || status}). In Google Cloud Console → APIs &amp; Services → Library, enable <b>Routes API</b> for this project (and, if it's offered, Directions API). Also check the key has no HTTP-referrer or API restriction that excludes it. Reload afterwards.`;
+  document.querySelector('.summary').after(n);
+}
+window.initMaps = function(){
+  const ds = new google.maps.DirectionsService();
+  let queue = 0;
+  DAYS.forEach((day, di) => {
+    const st = dayState[di];
+    const mapEl = document.getElementById(`map-${day.id}`); mapEl.innerHTML='';
+    const map = new google.maps.Map(mapEl, {mapTypeId: theme==='dark' ? 'roadmap' : 'terrain', styles: theme==='dark' ? DARK_MAP : [], gestureHandling:'cooperative', mapTypeControl:true, mapTypeControlOptions:{style:google.maps.MapTypeControlStyle.DROPDOWN_MENU, position:google.maps.ControlPosition.TOP_LEFT}, streetViewControl:false, fullscreenControl:true});
+    st.map = map;
+    const local = new google.maps.LatLngBounds(), all = new google.maps.LatLngBounds();
+    const info = new google.maps.InfoWindow();
+
+    function marker(k, i){
+      const pos = {lat:ll(k)[0], lng:ll(k)[1]};
+      all.extend(pos); if (k!=='home') local.extend(pos);
+      if (st.markers[k]) return;
+      const m = new google.maps.Marker({position:pos, map, title:P[k].n,
+        label:{text:String(i+1), color:'#fff', fontWeight:'700', fontSize:'12px'},
+        icon:{path:google.maps.SymbolPath.CIRCLE, scale:13, fillColor:k==='home'?'#2B6CB0':'#1D2B3A', fillOpacity:1, strokeColor:'#fff', strokeWeight:2}});
+      m.addListener('click', ()=>{ info.setContent(`<b>${P[k].n}</b><br><a target="_blank" href="${gpin(ll(k))}">Open in Google Maps</a>`); info.open({map, anchor:m}); });
+      st.markers[k] = m;
+    }
+    day.segs.forEach((s,i)=>{ if(s.at) marker(s.at,i); if(s.from) marker(s.from,i); if(s.to) marker(s.to,i); });
+    st.localBounds = local; st.allBounds = all;
+    map.fitBounds(local, 30);
+    st.el.querySelectorAll('.maptools button').forEach(b=>b.addEventListener('click',()=>map.fitBounds(b.dataset.zoom==='all'?all:local, 30)));
+
+    day.segs.forEach((s,i)=>{
+      if (!(s.from && s.to)) return;
+      const a={lat:ll(s.from)[0],lng:ll(s.from)[1]}, b={lat:ll(s.to)[0],lng:ll(s.to)[1]};
+      const mode = s.bus ? 'car' : s.mode;
+      const via = (s.via||[]).map(v=>({lat:v[0],lng:v[1]}));
+      const opts = mode==='car' ? {strokeColor:COL.car, strokeOpacity:.9, strokeWeight:5}
+                 : mode==='foot' ? dashed(COL.foot,'dot') : dashed(COL.lift,'dash');
+      // direction arrows: one way, or both ways for out-and-back walks
+      const arrow = (rot)=>({icon:{path:google.maps.SymbolPath.FORWARD_CLOSED_ARROW, scale:2.6, strokeColor:'#fff', strokeWeight:1, fillColor:COL[mode], fillOpacity:1, rotation:rot}, offset:rot?'35%':'65%', repeat:'120px'});
+      if (mode!=='lift') opts.icons = (opts.icons||[]).concat(s.back ? [arrow(0),arrow(180)] : [arrow(0)]);
+      const line = new google.maps.Polyline({path:[a,...via,b], map, ...opts, zIndex:mode==='car'?1:2});
+      line.addListener('mouseover',()=>line.setOptions({zIndex:20}));
+      st.lines[i] = line;
+      if (mode==='lift') return;
+      const travelMode = s.bus ? google.maps.TravelMode.TRANSIT : (mode==='car' ? google.maps.TravelMode.DRIVING : google.maps.TravelMode.WALKING);
+      const legacy = (withVia)=> ds.route({origin:a, destination:b, travelMode, waypoints: withVia ? via.map(v=>({location:v, stopover:false})) : []}, (res, status)=>{
+        if (status==='OK' && res.routes[0]) { line.setPath(res.routes[0].overview_path); routed++; }
+        else if (withVia && via.length) legacy(false);
+        else routeFailed(status);
+      });
+      // Routes API (current) first; the legacy Directions API is not available on new Google Cloud projects
+      const routesApi = (withVia)=> fetch('https://routes.googleapis.com/directions/v2:computeRoutes',{method:'POST',
+        headers:{'Content-Type':'application/json','X-Goog-Api-Key':GOOGLE_MAPS_API_KEY,'X-Goog-FieldMask':'routes.polyline.encodedPolyline'},
+        body:JSON.stringify({origin:{location:{latLng:{latitude:a.lat,longitude:a.lng}}}, destination:{location:{latLng:{latitude:b.lat,longitude:b.lng}}},
+          intermediates: withVia ? via.map(v=>({location:{latLng:{latitude:v.lat,longitude:v.lng}}, via:true})) : [],
+          travelMode: s.bus ? 'TRANSIT' : (mode==='car' ? 'DRIVE' : 'WALK'), polylineQuality:'HIGH_QUALITY'})})
+        .then(r=>r.json()).then(j=>{
+          const enc = j.routes && j.routes[0] && j.routes[0].polyline && j.routes[0].polyline.encodedPolyline;
+          if (enc) { line.setPath(google.maps.geometry.encoding.decodePath(enc)); routed++; }
+          else if (withVia && via.length) routesApi(false);
+          else { routesErr = (j.error && j.error.message) || 'no route'; legacy(true); }
+        }).catch(()=>legacy(true));
+      setTimeout(()=>routesApi(true), 90 * queue++);
+    });
+
+    // segment click → highlight
+    st.list.querySelectorAll('.seg').forEach(d=>d.addEventListener('click',()=>{
+      st.list.querySelectorAll('.seg').forEach(x=>x.classList.remove('active')); d.classList.add('active');
+      const i=+d.dataset.i, s=day.segs[i];
+      st.lines.forEach((l,j)=>{ if(!l) return; const m=day.segs[j].bus?'car':day.segs[j].mode; l.setOptions(m==='car'?{strokeWeight:5}:{}); l.setOptions({zIndex:m==='car'?1:2}); });
+      if (st.lines[i]) {
+        const l=st.lines[i]; const m=s.bus?'car':s.mode;
+        if (m==='car') l.setOptions({strokeWeight:9}); l.setOptions({zIndex:10});
+        const bb=new google.maps.LatLngBounds(); l.getPath().forEach(p=>bb.extend(p)); map.fitBounds(bb, 40);
+      } else if (s.at) {
+        map.panTo(st.markers[s.at].getPosition()); if (map.getZoom()<15) map.setZoom(15);
+        google.maps.event.trigger(st.markers[s.at],'click');
+      }
+    }));
+  });
+};
+
+// ---------- scroll spy + progress ----------
+(function(){
+  const nav = document.querySelector('.daynav');
+  const tabs = [...nav.querySelectorAll('a')];
+  const sections = tabs.map(a=>document.querySelector(a.getAttribute('href')));
+  let navH = nav.offsetHeight;
+  const sentinel = document.getElementById('navSentinel');
+  const spacer = document.getElementById('navSpacer');
+  let expandedH = 0, stuck = false;
+  tabs.forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();
+    const el=document.querySelector(a.getAttribute('href'));
+    window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - navH - 6, behavior:'smooth'});
+  }));
+  function update(){
+    const st = sentinel.getBoundingClientRect().top;
+    // hysteresis: collapse only once well past the top, expand only once fully back — no toggling at the boundary
+    if (!stuck && st < -40) stuck = true; else if (stuck && st > 0) stuck = false;
+    if (!stuck) expandedH = nav.offsetHeight;          // remember the full height while it's in normal flow
+    nav.classList.toggle('stuck', stuck);
+    navH = nav.offsetHeight;
+    spacer.style.height = Math.max(0, expandedH - navH) + 'px';   // keep total height constant so content never shifts
+    const y = window.scrollY + navH + 8;
+    let activeIdx = -1;
+    sections.forEach((sec,i)=>{
+      const top = sec.offsetTop, h = sec.offsetHeight;
+      const p = Math.min(1, Math.max(0, (y - top) / h));
+      const a = tabs[i];
+      a.style.setProperty('--p', p.toFixed(3));
+      a.classList.toggle('done', p >= 1);
+      if (y >= top && y < top + h) activeIdx = i;
+    });
+    if (activeIdx < 0 && y >= sections[sections.length-1].offsetTop) activeIdx = sections.length-1;
+    tabs.forEach((a,i)=>a.classList.toggle('active', i===activeIdx));
+  }
+  let ticking=false;
+  window.addEventListener('scroll',()=>{ if(!ticking){ requestAnimationFrame(()=>{update();ticking=false;}); ticking=true; } },{passive:true});
+  window.addEventListener('resize',update);
+  window.addEventListener('load',update);
+  update();
+})();
+</script>
+</body>
+</html>
