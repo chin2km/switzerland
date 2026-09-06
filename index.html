@@ -78,19 +78,12 @@
   .dayhead .tot{font-size:14px;color:var(--slate)}
   .dayhead .tot b{color:var(--rock);font-variant-numeric:tabular-nums}
 
-  .mapbox{position:relative}
-  .map{height:420px;width:100%;background:var(--chip)}
-  .maptools{position:absolute;right:10px;top:10px;z-index:900;display:flex;flex-direction:column;gap:6px}
-  .maptools button,.maptools a{font:inherit;font-size:12.5px;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:6px 9px;cursor:pointer;color:var(--rock);text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,.25)}
-  .maplegend{display:flex;flex-wrap:wrap;gap:6px 16px;padding:8px 18px;font-size:12.5px;color:var(--slate);border-bottom:1px solid var(--line)}
-  .maplegend i{display:inline-block;width:22px;height:0;border-top:3px solid;vertical-align:middle;margin-right:6px}
-  .maplegend .c{border-color:var(--car)} .maplegend .w{border-color:var(--walk);border-top-style:dotted;border-top-width:4px} .maplegend .l{border-color:var(--lift);border-top-style:dashed}
-  .mapnote{font-size:12px;color:var(--slate);padding:6px 18px 0}
+  .dayroute{padding:8px 18px;border-bottom:1px solid var(--line);font-size:13px}
+  .dayroute a{font-weight:600;color:var(--car);text-decoration:none}
 
   .segs{padding:6px 18px 16px}
-  .seg{display:grid;grid-template-columns:34px 1fr auto;gap:2px 12px;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer;scroll-margin-top:90px}
+  .seg{display:grid;grid-template-columns:34px 1fr auto;gap:2px 12px;padding:12px 0;border-bottom:1px solid var(--line);scroll-margin-top:90px}
   .seg:last-child{border-bottom:0}
-  .seg.active{background:var(--soft);margin:0 -18px;padding-left:18px;padding-right:18px}
   .ico{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;grid-row:1/4;margin-top:2px}
   .ico.car{background:var(--car)} .ico.walk{background:var(--walk)} .ico.lift{background:var(--lift)} .ico.park{background:var(--park)} .ico.sight{background:var(--sight)} .ico.food{background:var(--food)}
   .seg .t{font-size:12.5px;color:var(--slate);font-variant-numeric:tabular-nums}
@@ -112,14 +105,8 @@
   .notes ul{margin:0;padding-left:18px;font-size:14.5px}
   .notes li{margin:6px 0}
 
-  .map iframe{width:100%;height:100%;border:0;display:block}
-  .map .ph b{display:block;color:var(--rock);margin-bottom:4px}
-  .map .ph{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--slate);font-size:14px;padding:20px}
-  .map .ph a{color:var(--car);font-weight:600}
-
   @media (max-width:640px){
     .wrap{padding:14px 10px 80px}
-    .map{height:320px}
     .seg{grid-template-columns:30px 1fr;gap:2px 10px}
     .seg .cost{grid-row:auto;grid-column:2;text-align:left;font-size:14px;margin-top:2px}
     .seg .cost small{display:inline;margin-left:6px}
@@ -133,7 +120,7 @@
 <div class="wrap">
 
 <div class="topbar"><h1>Switzerland</h1><button id="theme" type="button" aria-label="Toggle dark mode">◐ Dark</button></div>
-<p class="lede">Sunday 6 – Wednesday 9 September 2026 · 4 adults · driving each day from the Airbnb in La Chaux-du-Milieu, then on to Karlsruhe. Prices in CHF for the whole group, food not included. Tap a segment to highlight it on the map; use the buttons to open directions in your maps app.</p>
+<p class="lede">Sunday 6 – Wednesday 9 September 2026 · 4 adults · driving each day from the Airbnb in La Chaux-du-Milieu, then on to Karlsruhe. Prices in CHF for the whole group, food not included. Use the buttons on each segment to open directions in your maps app.</p>
 
 <div class="summary">
   <div class="stat"><div class="k">Total, 4 days</div><div class="v">971<small>CHF · 1,099 with options</small></div></div>
@@ -164,7 +151,7 @@
     <li><b>Long days:</b> each day is 12–13 hours door to door with 4–4.5 h driving. Swap in an earlier drive home whenever the group is tired — everything after 15:00 on each day is optional.</li>
     <li><b>Mürren alternative (free):</b> if you skip the CHF 96 ride, walk the flat valley path from Lauterbrunnen to Stechelberg (6 km, 1h 20m) and take bus 141 back.</li>
     <li><b>Day 4 timing:</b> with a 9:00 check-out and Karlsruhe by ~16:00, Lucerne is a one-hour stretch-your-legs stop: Chapel Bridge and a loop of the Old Town squares. The Musegg Wall and Lion Monument were dropped — they'd add 45 min you don't have. If you'd rather skip Lucerne entirely, drive direct via Basel (~4h 15m) and arrive around 13:30. Fuel is cheaper in Germany — fill up after Basel, not before.</li>
-    <li><b>Maps:</b> the embedded maps use Google Maps routing for every drive and walk, including the drive back to the Airbnb each evening; out-and-back walks show arrows in both directions and their direction button opens the full round trip. Mountain trails Google can't route follow hand-placed trail points instead. Cable cars and trains are drawn as straight dotted lines. Map tiles need internet — open the page once on Wi-Fi in the morning, or rely on the direction buttons which hand off to your maps app.</li>
+    <li><b>Maps:</b> every drive and walk has a Google Maps and Apple Maps button that opens directions in your maps app. Out-and-back walks open the full round trip. Each day also has a link to the whole driving route.</li>
   </ul>
 </div>
 
@@ -294,7 +281,6 @@ const DAYS = [
 ];
 
 // ---------- helpers ----------
-const GOOGLE_MAPS_API_KEY = "AIzaSyDAsM-3nDDPCYEBaEK9gL_sONzEY9CTAm8";
 
 const ll = k => P[k].ll;
 const gdir = (a,b,mode,via,back) => { const dest = back ? a : b; const wps = (via||[]).slice(); if (back) wps.push(b); return `https://www.google.com/maps/dir/?api=1&origin=${a[0]},${a[1]}&destination=${dest[0]},${dest[1]}${wps.length?`&waypoints=${wps.map(w=>w.join(',')).join('|')}`:''}&travelmode=${mode==='car'?'driving':(mode==='lift'?'transit':'walking')}`; };
@@ -303,16 +289,13 @@ const gpin = (a) => `https://www.google.com/maps/search/?api=1&query=${a[0]},${a
 const KIND = {car:"Drive",park:"Park",walk:"Walk",lift:"Lift",sight:"Visit",food:"Eat"};
 
 const root = document.getElementById('days');
-const dayState = [];
 
 DAYS.forEach((day, di) => {
   const el = document.createElement('section'); el.className='day'; el.id=day.id;
   el.innerHTML = `
     <div class="dayhead"><h2>${day.title}<span>${day.sub}</span></h2>
       <div class="tot">Day total <b>${day.total}</b>${day.totOpt?` · ${day.totOpt}`:''} · ${day.hours} · ${day.km}</div></div>
-    <div class="mapbox"><div class="map" id="map-${day.id}"><div class="ph">Loading Google Maps…</div></div>
-      <div class="maptools"><button data-zoom="local">Local view</button><button data-zoom="all">Include Airbnb drive</button></div></div>
-    <div class="maplegend"><span><i class="c"></i>Drive</span><span><i class="w"></i>Walk (dots)</span><span><i class="l"></i>Cable car / funicular / train (dashes)</span><span>Numbers = segments below</span><a class="dayopen" target="_blank" rel="noopener" style="margin-left:auto;font-weight:600;color:var(--car);text-decoration:none">Open day route in Google Maps ↗</a></div>
+    <div class="dayroute"><a class="dayopen" target="_blank" rel="noopener">Open day driving route in Google Maps ↗</a></div>
     <div class="segs"></div>`;
   root.appendChild(el);
 
@@ -342,152 +325,17 @@ DAYS.forEach((day, di) => {
       ${links?`<div class="links">${links}</div>`:''}`;
     list.appendChild(d);
   });
-  dayState[di] = {el, list, map:null, lines:[], markers:{}, localBounds:null, allBounds:null};
 });
 
-// ---------- Google Maps ----------
-function embedFallback(reason){
-  DAYS.forEach(day=>{
-    const el=document.getElementById(`map-${day.id}`);
-    const carStops=[]; day.segs.forEach(s=>{ if(s.k==='car'&&!s.bus){ if(!carStops.length) carStops.push(s.from); carStops.push(s.to);} });
-    const o=ll(carStops[0]).join(','), d=ll(carStops[carStops.length-1]).join(',');
-    const wps=carStops.slice(1,-1).map(k=>ll(k).join(',')).join('|');
-    el.innerHTML=`<iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps/embed/v1/directions?key=${encodeURIComponent(GOOGLE_MAPS_API_KEY)}&origin=${o}&destination=${d}${wps?`&waypoints=${wps}`:''}&mode=driving&maptype=roadmap"></iframe>`;
-  });
-  document.querySelectorAll('.mapnote').forEach(n=>n.remove());
-  const n=document.createElement('p'); n.className='lede'; n.style.marginTop='0';
-  n.textContent=`Showing the driving route only (${reason}). Open this file in Chrome or Safari to get the full interactive map with the walking routes.`;
-  document.querySelector('.summary').after(n);
-}
-function showMapError(msg){
-  DAYS.forEach(day=>{ document.getElementById(`map-${day.id}`).innerHTML=`<div class="ph"><b>Google Maps could not load</b>${msg}</div>`; });
-}
-window.gm_authFailure = function(){
-  showMapError('The API key was rejected. In Google Cloud Console check that Maps JavaScript API and Directions API are enabled, billing is active, and the key has no HTTP-referrer restriction (this file opens from file://, which has no referrer).');
-};
-function loadGoogle(key){
-  const sc = document.createElement('script');
-  sc.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&libraries=geometry&callback=initMaps&loading=async`;
-  sc.async = true;
-  sc.onerror = ()=> embedFallback('the map script was blocked — this happens inside the chat preview or offline');
-  document.head.appendChild(sc);
-  setTimeout(()=>{ if(!window.google) embedFallback('the map script did not load in time'); }, 12000);
-}
-loadGoogle(GOOGLE_MAPS_API_KEY);
-
 // ---------- theme ----------
-const DARK_MAP = [
-  {elementType:'geometry',stylers:[{color:'#1f2a36'}]},
-  {elementType:'labels.text.fill',stylers:[{color:'#9fb0c2'}]},
-  {elementType:'labels.text.stroke',stylers:[{color:'#131a22'}]},
-  {featureType:'road',elementType:'geometry',stylers:[{color:'#354456'}]},
-  {featureType:'road.highway',elementType:'geometry',stylers:[{color:'#4a5b70'}]},
-  {featureType:'water',elementType:'geometry',stylers:[{color:'#0f2233'}]},
-  {featureType:'landscape.natural',elementType:'geometry',stylers:[{color:'#24313f'}]},
-  {featureType:'poi.park',elementType:'geometry',stylers:[{color:'#223a30'}]},
-  {featureType:'poi',elementType:'labels',stylers:[{visibility:'off'}]},
-];
 let theme = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
 function applyTheme(){
   document.documentElement.dataset.theme = theme;
   document.getElementById('theme').textContent = theme==='dark' ? '○ Light' : '◐ Dark';
   document.querySelector('meta[name=theme-color]').content = theme==='dark' ? '#0F161E' : '#1D2B3A';
-  dayState.forEach(st=>{ if(st.map) st.map.setOptions({styles: theme==='dark' ? DARK_MAP : [], mapTypeId: theme==='dark' ? 'roadmap' : 'terrain'}); });
 }
 document.getElementById('theme').addEventListener('click',()=>{ theme = theme==='dark'?'light':'dark'; applyTheme(); });
 applyTheme();
-
-const COL = {car:'#2B6CB0', foot:'#2E8B57', lift:'#7C4DBD'};
-const dashed = (color, kind) => kind==='dot'
-  ? {strokeOpacity:0, strokeColor:color, icons:[{icon:{path:google.maps.SymbolPath.CIRCLE, scale:3, fillColor:color, fillOpacity:1, strokeColor:'#fff', strokeWeight:1}, offset:'0', repeat:'11px'}]}
-  : {strokeOpacity:0, strokeColor:color, icons:[{icon:{path:'M 0,-1 0,1', strokeOpacity:1, strokeColor:color, scale:3}, offset:'0', repeat:'16px'}]};
-
-let routed = 0, failed = 0, routesErr = '';
-function routeFailed(status){
-  failed++;
-  if (failed !== 1) return;
-  const n=document.createElement('div'); n.className='lede'; n.style.cssText='background:#FFF7E6;border:1px solid #F0D9A6;border-radius:10px;padding:12px 14px;margin:0 0 14px;color:var(--rock)';
-  n.innerHTML=`<b>Routes are showing as straight lines</b> because Google refused the routing request (${routesErr || status}). In Google Cloud Console → APIs &amp; Services → Library, enable <b>Routes API</b> for this project (and, if it's offered, Directions API). Also check the key has no HTTP-referrer or API restriction that excludes it. Reload afterwards.`;
-  document.querySelector('.summary').after(n);
-}
-window.initMaps = function(){
-  const ds = new google.maps.DirectionsService();
-  let queue = 0;
-  DAYS.forEach((day, di) => {
-    const st = dayState[di];
-    const mapEl = document.getElementById(`map-${day.id}`); mapEl.innerHTML='';
-    const map = new google.maps.Map(mapEl, {mapTypeId: theme==='dark' ? 'roadmap' : 'terrain', styles: theme==='dark' ? DARK_MAP : [], gestureHandling:'cooperative', mapTypeControl:true, mapTypeControlOptions:{style:google.maps.MapTypeControlStyle.DROPDOWN_MENU, position:google.maps.ControlPosition.TOP_LEFT}, streetViewControl:false, fullscreenControl:true});
-    st.map = map;
-    const local = new google.maps.LatLngBounds(), all = new google.maps.LatLngBounds();
-    const info = new google.maps.InfoWindow();
-
-    function marker(k, i){
-      const pos = {lat:ll(k)[0], lng:ll(k)[1]};
-      all.extend(pos); if (k!=='home') local.extend(pos);
-      if (st.markers[k]) return;
-      const m = new google.maps.Marker({position:pos, map, title:P[k].n,
-        label:{text:String(i+1), color:'#fff', fontWeight:'700', fontSize:'12px'},
-        icon:{path:google.maps.SymbolPath.CIRCLE, scale:13, fillColor:k==='home'?'#2B6CB0':'#1D2B3A', fillOpacity:1, strokeColor:'#fff', strokeWeight:2}});
-      m.addListener('click', ()=>{ info.setContent(`<b>${P[k].n}</b><br><a target="_blank" href="${gpin(ll(k))}">Open in Google Maps</a>`); info.open({map, anchor:m}); });
-      st.markers[k] = m;
-    }
-    day.segs.forEach((s,i)=>{ if(s.at) marker(s.at,i); if(s.from) marker(s.from,i); if(s.to) marker(s.to,i); });
-    st.localBounds = local; st.allBounds = all;
-    map.fitBounds(local, 30);
-    st.el.querySelectorAll('.maptools button').forEach(b=>b.addEventListener('click',()=>map.fitBounds(b.dataset.zoom==='all'?all:local, 30)));
-
-    day.segs.forEach((s,i)=>{
-      if (!(s.from && s.to)) return;
-      const a={lat:ll(s.from)[0],lng:ll(s.from)[1]}, b={lat:ll(s.to)[0],lng:ll(s.to)[1]};
-      const mode = s.bus ? 'car' : s.mode;
-      const via = (s.via||[]).map(v=>({lat:v[0],lng:v[1]}));
-      const opts = mode==='car' ? {strokeColor:COL.car, strokeOpacity:.9, strokeWeight:5}
-                 : mode==='foot' ? dashed(COL.foot,'dot') : dashed(COL.lift,'dash');
-      // direction arrows: one way, or both ways for out-and-back walks
-      const arrow = (rot)=>({icon:{path:google.maps.SymbolPath.FORWARD_CLOSED_ARROW, scale:2.6, strokeColor:'#fff', strokeWeight:1, fillColor:COL[mode], fillOpacity:1, rotation:rot}, offset:rot?'35%':'65%', repeat:'120px'});
-      if (mode!=='lift') opts.icons = (opts.icons||[]).concat(s.back ? [arrow(0),arrow(180)] : [arrow(0)]);
-      const line = new google.maps.Polyline({path:[a,...via,b], map, ...opts, zIndex:mode==='car'?1:2});
-      line.addListener('mouseover',()=>line.setOptions({zIndex:20}));
-      st.lines[i] = line;
-      if (mode==='lift') return;
-      const travelMode = s.bus ? google.maps.TravelMode.TRANSIT : (mode==='car' ? google.maps.TravelMode.DRIVING : google.maps.TravelMode.WALKING);
-      const legacy = (withVia)=> ds.route({origin:a, destination:b, travelMode, waypoints: withVia ? via.map(v=>({location:v, stopover:false})) : []}, (res, status)=>{
-        if (status==='OK' && res.routes[0]) { line.setPath(res.routes[0].overview_path); routed++; }
-        else if (withVia && via.length) legacy(false);
-        else routeFailed(status);
-      });
-      // Routes API (current) first; the legacy Directions API is not available on new Google Cloud projects
-      const routesApi = (withVia)=> fetch('https://routes.googleapis.com/directions/v2:computeRoutes',{method:'POST',
-        headers:{'Content-Type':'application/json','X-Goog-Api-Key':GOOGLE_MAPS_API_KEY,'X-Goog-FieldMask':'routes.polyline.encodedPolyline'},
-        body:JSON.stringify({origin:{location:{latLng:{latitude:a.lat,longitude:a.lng}}}, destination:{location:{latLng:{latitude:b.lat,longitude:b.lng}}},
-          intermediates: withVia ? via.map(v=>({location:{latLng:{latitude:v.lat,longitude:v.lng}}, via:true})) : [],
-          travelMode: s.bus ? 'TRANSIT' : (mode==='car' ? 'DRIVE' : 'WALK'), polylineQuality:'HIGH_QUALITY'})})
-        .then(r=>r.json()).then(j=>{
-          const enc = j.routes && j.routes[0] && j.routes[0].polyline && j.routes[0].polyline.encodedPolyline;
-          if (enc) { line.setPath(google.maps.geometry.encoding.decodePath(enc)); routed++; }
-          else if (withVia && via.length) routesApi(false);
-          else { routesErr = (j.error && j.error.message) || 'no route'; legacy(true); }
-        }).catch(()=>legacy(true));
-      setTimeout(()=>routesApi(true), 90 * queue++);
-    });
-
-    // segment click → highlight
-    st.list.querySelectorAll('.seg').forEach(d=>d.addEventListener('click',()=>{
-      st.list.querySelectorAll('.seg').forEach(x=>x.classList.remove('active')); d.classList.add('active');
-      const i=+d.dataset.i, s=day.segs[i];
-      st.lines.forEach((l,j)=>{ if(!l) return; const m=day.segs[j].bus?'car':day.segs[j].mode; l.setOptions(m==='car'?{strokeWeight:5}:{}); l.setOptions({zIndex:m==='car'?1:2}); });
-      if (st.lines[i]) {
-        const l=st.lines[i]; const m=s.bus?'car':s.mode;
-        if (m==='car') l.setOptions({strokeWeight:9}); l.setOptions({zIndex:10});
-        const bb=new google.maps.LatLngBounds(); l.getPath().forEach(p=>bb.extend(p)); map.fitBounds(bb, 40);
-      } else if (s.at) {
-        map.panTo(st.markers[s.at].getPosition()); if (map.getZoom()<15) map.setZoom(15);
-        google.maps.event.trigger(st.markers[s.at],'click');
-      }
-    }));
-  });
-};
 
 // ---------- scroll spy + progress ----------
 (function(){
